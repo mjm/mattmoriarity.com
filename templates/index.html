@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% set currentPage = "index" %}
+
+{% block content %}
+
+<div class="h-feed">
+
+{% asyncEach post in posts %}
+{% include "listPost.html" %}
+<hr class="h-1 bg-purple-lightest w-1/3 rounded-full">
+{% endeach %}
+
+</div>
+
+<div class="text-center mt-8">
+  <p>See more posts in the <a href="/archive/" class="text-purple-dark">archive</a>.</p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% set currentPage = "archive" %}
+
+{% block content %}
+
+<h1 class="text-purple-darker text-3xl font-display font-normal mt-12 mb-0">Archive</h1>
+<hr class="h-1 bg-purple-lightest rounded-full mt-0">
+
+<ul class="list-reset">
+{% for month in months %}
+
+<li>
+  <a href="{{ month.permalink }}" class="text-purple-dark">{{ month.date | dateformat('MMMM YYYY') }}</a>
+</li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}

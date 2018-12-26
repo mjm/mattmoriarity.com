@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% set currentPage = page.path %}
+
+{% block content %}
+  <article class="mt-12 mb-10 blog-content text-purple-darkest">
+    <h2 class="font-display font-bold mb-4 leading-tight text-purple-darker">
+      {{ page.name }}
+    </h2>
+
+    {{ page.content }}
+  </article>
+{% endblock %}

@@ -1,0 +1,23 @@
+<article class="h-entry mt-12 mb-10 text-purple-darkest">
+  {% if post.name %}
+  <h2 class="p-name font-display font-bold mb-4 leading-tight">
+    <a href="{{ post.permalink }}" class="no-underline text-purple-darker">{{ post.name }}</a>
+  </h2>
+  {% endif %}
+
+  <div class="e-content{% if not post.name %} p-name{% endif %} blog-content">
+    {{ post.content }}
+  </div>
+
+  {% if post.photo %}
+  {% for photo in post.photo %}
+  <figure>
+    <img src="{{ photo }}" class="u-photo" />
+  </figure>
+  {% endfor %}
+  {% endif %}
+
+  <div class="text-right mt-4">
+    <a href="{{ post.permalink }}" class="u-url text-purple-dark bg-purple-lightest rounded-lg uppercase no-underline px-3 pb-1 pt-2 border-b-2 border-transparent hover:border-purple text-sm">➔ <time class="dt-published" datetime="{{ post.published | dateformat }}">{{ post.published | dateformat('MMM D, YYYY') }}</time></a>
+  </div>
+</article>

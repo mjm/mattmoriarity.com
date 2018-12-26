@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{{ site.title }}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Eczar:400,700|Gentium+Basic:400,400i,700" rel="stylesheet">
+  <link href="/site.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/rainbow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/elm.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  {{ site | feedlinks }}
+  {{ site | micropublinks }}
+  <link rel="me" href="https://github.com/mjm">
+  <link rel="me" href="mailto:matt@mattmoriarity.com">
+  <link rel="pgpkey" href="/me.key">
+</head>
+<body class="font-serif bg-purple-dark">
+  <div class="bg-white w-full min-h-screen mt-2 pb-12">
+    <div class="container mx-auto">
+      <header class="h-card text-lg sm:text-2xl text-center pt-6 pb-3">
+        <a href="https://{{ site.blogId }}/" class="u-url text-purple-darker no-underline">
+          <h1 class="font-normal font-display flex items-center justify-center">
+            <img src="https://gravatar.com/avatar/fe0af3575ea6c1fa7881a17aaf72c510" class="u-photo w-10 sm:w-12 h-10 sm:h-12 rounded-full mr-4">
+            <div class="p-name mt-2">{{ site.title }}</div>
+          </h1>
+        </a>
+      </header>
+
+      {% macro navlink(title, key, href) %}
+      {% set isCurrent = (currentPage == key) %}
+      <li class="pt-3 pb-2 mx-2 px-1 border-b-4 {% if isCurrent %}border-purple{% else %}border-transparent hover:border-purple-lighter{% endif %}">
+        <a href="{{ href }}" class="text-purple-dark no-underline {% if isCurrent %}font-semibold{% endif %}">{{ title }}</a>
+      </li>
+      {% endmacro %}
+
+      <nav class="max-w-md mx-auto">
+        <ul class="list-reset flex flex-row justify-center bg-purple-lightest mt-3 mb-4 sm:rounded-lg shadow-md text-lg">
+          {{ navlink("Home", "index", "/") }}
+          {{ navlink("About", "pages/about", "/about/") }}
+          {{ navlink("Music", "pages/music", "/music/") }}
+          {{ navlink("Talks", "pages/talks", "/talks/") }}
+        </ul>
+      </nav>
+
+      <section class="text-md sm:text-xl max-w-md mx-auto leading-normal px-3">
+        {% block content %}
+        {% endblock %}
+      </section>
+    </div>
+  </div>
+</body>
+</html>

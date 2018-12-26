@@ -1,0 +1,6 @@
+{{ post.content }}
+{% if post.photo -%}
+{% for photo in post.photo -%}
+<figure><img src="{{ photo }}" /></figure>
+{% endfor %}
+{%- endif -%}
