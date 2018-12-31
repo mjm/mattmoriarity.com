@@ -1,0 +1,47 @@
+{% set author = mention.author | first %}
+
+<article class="flex flex-row mt-4 bg-purple-lightest px-4 py-3 rounded-lg shadow">
+
+  {% if author %}
+  <div class="mr-4 mt-1">
+    {% if author.photo | first %}
+    {% if author.url %}<a href="{{ author.url }}">{% endif %}
+      <img src="{{ author.photo | first }}" class="w-12 rounded-full">
+    {% if author.url %}</a>{% endif %}
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="flex flex-col text-base w-full">
+
+    {% if author %}
+    <div class="flex flex-row">
+      <div class="flex-grow">
+        <a href="{{ author.url }}" class="font-bold text-purple-darker no-underline">{{ author.name }}</a>
+      </div>
+      {% if mention.published %}
+      <div class="flex-no-grow">
+        <a href="{{ mention.url }}" class="text-purple-dark no-underline">
+          {{ mention.published | dateformat('MMM D, YYYY HH:mm') }}
+        </a>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="mention-content">
+      {% if mention.kind == 'reply' %}
+      {{ mention.content }}
+      {% elif mention.kind == 'like' %}
+      <a href="{{ mention.url }}">
+        <em>liked this post.</em>
+      </a>
+      {% else %}
+      <a href="{{ mention.url }}">
+        <em>mentioned this post.</em>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+</article>

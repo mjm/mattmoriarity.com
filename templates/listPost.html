@@ -17,7 +17,13 @@
   {% endfor %}
   {% endif %}
 
-  <div class="text-right mt-4">
-    <a href="{{ post.permalink }}" class="u-url text-purple-dark bg-purple-lightest rounded-lg uppercase no-underline px-3 pb-1 pt-2 border-b-2 border-transparent hover:border-purple text-sm">➔ <time class="dt-published" datetime="{{ post.published | dateformat }}">{{ post.published | dateformat('MMM D, YYYY') }}</time></a>
+  <div class="flex flew-row justify-end items-baseline mt-4 text-sm">
+    {% if post.mentionCount > 0 %}
+    <span class="text-purple-dark mr-3 text-base">
+      <i class="fas fa-comment"></i>
+      <span class="font-display">{{ post.mentionCount }}</span>
+    </span>
+    {% endif %}
+    <a href="{{ post.permalink }}" class="u-url text-purple-dark bg-purple-lightest rounded-lg uppercase no-underline px-3 pb-1 pt-2 border-b-2 border-transparent hover:border-purple">➔ <time class="dt-published" datetime="{{ post.published | dateformat }}">{{ post.published | dateformat('MMM D, YYYY') }}</time></a>
   </div>
 </article>

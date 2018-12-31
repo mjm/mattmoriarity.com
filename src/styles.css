@@ -49,6 +49,14 @@
   @apply h-px mt-6 mb-6 w-2/3 bg-purple-lighter;
 }
 
+.mention-content p {
+  @apply my-1;
+}
+
+.mention-content a {
+  @apply text-purple-dark;
+}
+
 /**
  * Here you would add any of your custom component classes; stuff that you'd
  * want loaded *before* the utilities so that the utilities could still
