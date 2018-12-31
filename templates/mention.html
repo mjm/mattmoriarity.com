@@ -22,7 +22,7 @@
       {% if mention.published %}
       <div class="flex-no-grow">
         <a href="{{ mention.url }}" class="text-purple-dark no-underline">
-          {{ mention.published | dateformat('MMM D, YYYY HH:mm') }}
+          {{ mention.published | dateformat('MMM D, YYYY hh:mm A') }}
         </a>
       </div>
       {% endif %}
