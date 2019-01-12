@@ -122,7 +122,7 @@ app.get('/*', (req, res, next) => {
     return;
   }
 
-  next();
+  res.render('error.html', { site });
 });
 
 app.listen(8080, () => {
