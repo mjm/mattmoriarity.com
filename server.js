@@ -38,6 +38,10 @@ const posts = [
     content: safe(`
     <p>This is a first paragraph.</p>
     <p>This is a second paragraph.</p>
+    <blockquote>
+    What am I doing here?
+    </blockquote>
+    <p>How does it look with a paragraph around it?</p>
     `),
     permalink: '/2018/12/this-is-another-test-post',
     published: parseDate('2018-12-25T12:12:12Z')

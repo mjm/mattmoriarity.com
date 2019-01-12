@@ -49,6 +49,10 @@
   @apply h-px mt-6 mb-6 w-2/3 bg-purple-lighter;
 }
 
+.blog-content blockquote {
+  @apply border-l-4 border-purple-lighter pl-3 py-2 bg-grey-lightest text-purple-darker;
+}
+
 .mention-content p {
   @apply my-1;
 }
