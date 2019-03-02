@@ -20,7 +20,7 @@ action "Build assets" {
 action "Deploy public assets" {
   needs = "Build assets"
   uses = "actions/aws/cli@master"
-  args = "s3 cp dist/ s3://mattmoriarity.com/ --acl public_read --recursive"
+  args = "s3 cp dist/ s3://mattmoriarity.com/ --acl public-read --recursive"
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 }
 
